@@ -1,3 +1,4 @@
+import { TicketType } from '@prisma/client';
 import hotelRepository from '@/repositories/hotels-repository';
 import { enrollmentRepository } from '@/repositories/enrollments-repository';
 import { notFoundError } from '@/errors';
@@ -11,7 +12,7 @@ async function listHotels(userId: number) {
   }
   const ticket = await ticketsRepository.findTicketByEnrollmentId(enrollment.id);
 
-  if (!ticket || ticket.status === 'RESERVED' || ticket.ticketTypeId || !ticket.ticketTypeId) {
+  if (!ticket || ticket.status === 'RESERVED' || ticket.TicketType || !ticket.TicketType) {
     throw cannotListHotelsError();
   }
 }
