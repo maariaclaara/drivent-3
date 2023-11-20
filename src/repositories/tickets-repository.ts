@@ -20,7 +20,6 @@ async function findTicketById(ticketId: number) {
     where: { id: ticketId },
     include: { TicketType: true },
   });
-
   return result;
 }
 
@@ -33,7 +32,6 @@ async function ticketProcessPayment(ticketId: number) {
       status: TicketStatus.PAID,
     },
   });
-
   return result;
 }
 
